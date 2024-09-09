@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doramiaw</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="./images/logo.png">
+
+</head>
+
+<body id="top">
+
+    <div class="identitas">
+        <a>Nama Aplikasi: {{ nama_aplikasi }}</a> 
+        <a>Nama: {{ nama }}</a> 
+        <a>Kelas: {{ kelas }}</a>
+    </div>
+
+    <div class="logo">
+
+        <img src="{% static 'images/logo.png' %}" class="img-logo" alt="Doramiaw">
+
+        <div class="input-wrapper">
+            <input type="search" name="search" placeholder="Search product" class="search-field">
+            <ion-icon name="search-outline" aria-hidden="true" class="search-icon"></ion-icon>
+        </div>
+
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li><a href="#home" class="navbar-link has-after">Home</a></li>
+                <li><a href="#collection" class="navbar-link has-after">Collection</a></li>
+                <li><a href="#shop" class="navbar-link has-after">Shop</a></li>
+                <li><a href="#offer" class="navbar-link has-after">Offer</a></li>
+                <li><a href="#blog" class="navbar-link has-after">Blog</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    
+
+    <div class=text-bestseller>
+        <h1 class="best">Our Bestsellers</h1>
+
+    <div/>
+
+    <div class="bestsellers" id=collection>
+
+        <nav class="bestseller-picts">
+            <div class="navbar-bestseller">
+                <a href="#" class="product-image"><img src="{% static 'images/pintu.png' %}" alt="pintu"/></a>
+                <h class="price">Rp500.000</h>
+                <a href="#" class="produk-link"><span class="produk">Pintu Kemana Saja</span></a>
+                <h class="star">★★★★★</h>
+                <h class="keterangan">pintu kemana saja akan membuatmu bebas melakukan perjalanan ke alam liar.
+                    Kamu bisa jalan-jalan ke segala alam. mudah disimpan dan tidak mudah lapuk</h>
+            </div>
+
+            <div class="navbar-bestseller">
+                <a href="#"><img src="{% static 'images/kipas.png' %}" alt="kipas" /></a>
+                <h class="price">Rp200.000</h>
+                <a href="#" class="produk-link"><span class="produk">Kipas Pembersih Code Eror</span></a>
+                <h class="star">★★★★☆</h>
+                <h class="keterangan">Kode kamu eror? Tenang brookk nyalain kipasnya aja nanti erornya ilang sendiri.
+                    Hoax? Uang dijamin tidak kembali. Kalo erornya gak ilang, minimal laptopnya kagak panas lah.</h>
+            </div>
+
+            <div class="navbar-bestseller">
+                <a href="#"><img src="{% static 'images/senter.png' %}" alt="senter" /></a>
+                <h class="price">Rp600.000</h>
+                <a href="#" class="produk-link"><span class="produk">Senter Pembesar Nilai</span></a>
+                <h class="star">★★★★☆</h>
+                <h class="keterangan">Kalo nilainya kecil gak usah nangis ya. Nobita aja kalo jeblok
+                    tetep happy kiyowok. Tahu kenapa? Karena digedein pake senter ini. Udah banyak reviewnya, kok.</h>
+            </div>
+            
+            <div class="navbar-bestseller">
+                <a href="#"><img src="{% static 'images/dorayaki.png' %}" alt="dorayaki" /></a>
+                <h class="price">Rp125.000</h>
+                <a href="#" class="produk-link"><span class="produk">Dorayaki Manis</span></a>
+                <h class="star">★★★★☆</h>
+                <h class="keterangan">Dorayakinya manis kayak kamu. Dibuat dari tepung pilihan yang bergizi.
+                    Coklatnya lumer di mulut, dan bikin kenyang di perut. Kalo gak sempet sarapan, makan ini aja.</h>
+            </div>
+
+            <div class="navbar-bestseller">
+                <a href="#"><img src="{% static 'images/baling.png' %}" alt="baling" /></a>
+                <h class="price">Rp330.000</h>
+                <a href="#" class="produk-link"><span class="produk">Baling-Baling Bambu</span></a>
+                <h class="star">★★★★★</h>
+                <h class="keterangan">Masa kecil kamu pernah mimpi bisa terbang? Eitsss sekarang udah canggih brookk.
+                    Balik-baling bambu ini bisa bikin kamu terbang ke sana kemari. Kalo jatuh jangan lupa bangkit lagi.</h>
+            </div>
+        </nav>
+
+
+        <div class=text-shop-all>
+            <a href="#" class="btn-link">
+                <span class="span">Shop All Products →</span>
+            </a>
+        </div>
+
+    </div>
+    
+    
+
+</body>
+</html>
