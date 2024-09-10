@@ -3,7 +3,8 @@ Untuk mulai mengerjakan tugas ini, saya membuat repository di GitHub dengan nama
 
 
 2. Bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-![image](https://github.com/user-attachments/assets/54a11ad2-8a22-4bb0-a287-2edc8c1d182b)
+![image](https://github.com/user-attachments/assets/c90c9074-57cf-408c-a326-8778965721d4)
+
 
 
 3. Fungsi git dalam pengembangan perangkat lunak!
