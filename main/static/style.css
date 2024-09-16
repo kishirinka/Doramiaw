@@ -8,15 +8,16 @@ body {
 .identitas {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: center;
     background-color: #16537e;
     padding: 10px;
-    text-align:start;
+    text-align: center;
 }
 
-.identitas a{
-    color:#FFFAF0
+.identitas p, .identitas h1 {
+    color: #FFFAF0;
+    margin: 0px 0px;
 }
 
 .logo {
@@ -149,12 +150,12 @@ body {
 }
 
 .text-bestseller h1{
-    font-size: 27px !important;
-    font-weight: bold !important;
-    text-align: left !important;
-    margin-left: 30px !important;
+    font-size: 27px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 30px;
     margin-top: 50px;
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
     font-family: 'Urbanist', sans-serif;
 }
 
@@ -217,4 +218,40 @@ body {
     color: #333; /* Warna bintang */
     align-items: center; /* Menyelaraskan secara vertikal */
     justify-content: left;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    background-color: #FFFAF0;
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #16537e;
+}
+
+th, td {
+    border: 2px solid #16537e;
+    padding: 8px;
+    text-align: left;  
+}
+
+th {
+    background-color: #f4f4f4;   
+}
+
+.text-form h1{
+    font-size: 27px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-family: 'Urbanist', sans-serif;
 }

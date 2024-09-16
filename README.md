@@ -1,25 +1,65 @@
-###Nama: Irma Nia Alwijah
-###NPM: 2306226864
-###Class: PBP B
+Berikut adalah perbaikan penulisan untuk file `README.md` yang lebih terstruktur dan rapi:
 
-link pws: irma-nia-doramiaw.pbp.cs.ui.ac.id
+---
 
-#1. cara saya mengimplementasikan semua checklist yang ditentukan
-Untuk mulai mengerjakan tugas ini, saya membuat repository di GitHub dengan nama e-commerce saya yaitu Doramiaw. Setelah itu, saya mengcloning repository tersebut pada laptop saya agar bisa dikerjakan secra lokal. Saat ada beberapa perubahan, saya meng-add, commit, push pada github. Repositori yang saya buat dibranching pada branch Main. Saya mengaktifkan environment pada cmd, lalu mulai membuat proyek django dengan nama "Doramiaw". Hal pertama yang saya lakukan adalah membuat file requirements.txt yang berisi beberapa dependencies lalu menginstall dependencies tersebut. Tidak lupa pula menambahkan host pada settings.py agar aplikasi web dapat diakses. Selanjutnya, saya membuat berkas .gitignore agar beberapa berkas direktori yang tidak perlu dilacak dapat diabaikan oleh Git (tidak masuk ke dalam versi kontrol Git). mSaya membuat aplikasi main di dalam projek Doramiaw. Pada settings.py saya menambahkan aplikasi tersebut pada variable INSTALLED_APPS untuk mendaftarkan aplikasi yang dibuat pada projek. Kemudian di dalam folder main, saya membuat folder template yang berisi html. Saya mengisii html tersebut dengan kode-kode berdasakan design e-commerce yang akan saya buat. Setelah selesai, saya mengubah isi file model.py dengan data-data produk pada ecommerce saya lalu melakukan makemigrations dan migrasi untuk mengaplikasikan perubahan yang saya buat dalam model. Template yang saya buat tersebut dihubungkan juga dengan view. Pada urls.py dalam direktori main saya mengatur rute URL yang terkait dengan aplikasi main sedangkan pada urls.py di proyek, saya mengimpor rute URL dari berkas urls.py aplikasi main.  Pada langkah terakhir setelah semua langkah diatas diaplikasikan, saya mulai push direktory tersebut ke pws. Langkah ini saya lakukan terakhir karena pada saat pengerjaan tugas ini dilaksanakan, pws sedang bermasalah dan baru bisa digunakan ketika tugas saya selesai. 
+# Doramiaw E-commerce
 
+### Nama: Irma Nia Alwijah  
+### NPM: 2306226864  
+### Kelas: PBP B  
 
-#2. Bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+[Link PWS](http://irma-nia-doramiaw.pbp.cs.ui.ac.id)
+
+## 1. Implementasi Checklist
+
+Untuk menyelesaikan tugas ini, saya melakukan langkah-langkah berikut:
+
+1. **Membuat Repository GitHub**  
+   Saya memulai dengan membuat repository GitHub dengan nama proyek e-commerce saya, *Doramiaw*. Kemudian saya melakukan cloning repository ke laptop agar bisa dikerjakan secara lokal. Setiap ada perubahan, saya melakukan `git add`, `git commit`, dan `git push` ke GitHub.
+
+2. **Membuat Branch dan Mengaktifkan Environment**  
+   Semua pekerjaan dilakukan di branch `main`. Saya mengaktifkan virtual environment di cmd dan membuat proyek Django bernama *Doramiaw*.
+
+3. **Menambahkan Dependencies**  
+   Saya membuat file `requirements.txt` yang berisi daftar dependencies dan menginstalnya. Saya juga menambahkan *allowed hosts* di `settings.py` agar aplikasi web dapat diakses.
+
+4. **Membuat `.gitignore`**  
+   File `.gitignore` dibuat untuk mengabaikan file yang tidak perlu dilacak oleh Git, seperti file environment dan direktori lainnya.
+
+5. **Membuat Aplikasi Utama**  
+   Saya membuat aplikasi bernama `main` di dalam proyek *Doramiaw*. Kemudian, menambahkan aplikasi tersebut di `INSTALLED_APPS` pada `settings.py`.
+
+6. **Membuat Template HTML**  
+   Dalam folder `main`, saya membuat folder `templates` yang berisi file HTML sesuai desain e-commerce saya.
+
+7. **Mengelola Model dan Database**  
+   Saya mengubah `models.py` dengan data produk yang ada di e-commerce, lalu melakukan migrasi (`makemigrations` dan `migrate`).
+
+8. **Menghubungkan Template dengan Views**  
+   Saya menambahkan logika di `views.py` dan menghubungkannya dengan template HTML. Pada `urls.py`, saya mengatur rute URL untuk aplikasi `main` dan menautkannya di `urls.py` proyek utama.
+
+9. **Deploy ke PWS**  
+   Setelah semua langkah di atas selesai, saya melakukan `push` direktori proyek ke PWS. Langkah ini saya lakukan terakhir karena PWS sempat mengalami masalah saat pengerjaan tugas.
+
+## 2. Diagram Alur Request Client dan Response di Django
+
 ![image](https://github.com/user-attachments/assets/c90c9074-57cf-408c-a326-8778965721d4)
 
+### Penjelasan
 
+- **urls.py**: Berfungsi untuk memetakan URL yang di-request oleh pengguna ke views yang sesuai.
+- **views.py**: Menangani logika aplikasi dan mengambil/memproses data dari models atau permintaan lainnya.
+- **models.py**: Mengelola data dan struktur database, serta menghubungkan dengan ORM (Object-Relational Mapping) Django.
+- **HTML template**: Merupakan representasi dari antarmuka pengguna yang dikirimkan sebagai respons.
 
-#3. Fungsi git dalam pengembangan perangkat lunak!
-Dalam membuat kode untuk suatu program, tentunya tidak akan bisa hanya dalam sekali duduk apalagi jika program yang dibuat sangat besar. Apalagi jika banyak revisi yang harus dilakukan. Dengan menggunakan git, kita dapat menyimpan versi yang berbeda dari kode sumber. Selain itu, git juga berfungsi untuk kolaborasi tim yang bekerja pada projek yang sama tanpa saling mengganggu satu sama lain.
+## 3. Fungsi Git dalam Pengembangan Perangkat Lunak
 
+Git berfungsi sebagai sistem kontrol versi yang memungkinkan kita menyimpan, mengelola, dan melacak perubahan dalam kode. Hal ini sangat membantu saat melakukan revisi berkala dan bekerja dalam tim, karena memungkinkan kolaborasi tanpa saling mengganggu satu sama lain.
 
-#4. Framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak
-Django cocok untuk pemula karena memiliki fitur yang lengkap seperti interakti ke database dan sistem routing, struktur yang jelas anatara MVT (model, views, template), dan dokumentasi yang sangat baik. 
+## 4. Alasan Django Dipilih untuk Belajar Pengembangan Perangkat Lunak
 
+Django cocok untuk pemula karena menyediakan banyak fitur bawaan seperti interaksi dengan database, sistem routing, dan keamanan. Django juga memiliki struktur yang jelas dengan menggunakan pola Model-View-Template (MVT), serta dokumentasi yang lengkap dan mudah dipahami.
 
-#5. Alasan model pada Django disebut sebagai ORM
-Model disebut ORM karena berfungsi sebagai penghubung antara database dan kode objek. Jadi programer bisa membuat, membaca, memperbarui, dan hapus menggunakan objek Python tanpa harus menulis query SQL secara langsung. Setiap model di Django adalah representasi dari tabel di database, dan atribut-atribut di dalam model merepresentasikan kolom-kolom dalam tabel tersebut.
+## 5. Mengapa Model di Django Disebut sebagai ORM
+
+Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfungsi sebagai penghubung antara kode Python dan database. Melalui ORM, kita bisa membuat, membaca, memperbarui, dan menghapus data dari database tanpa menulis query SQL secara langsung. Setiap model merepresentasikan tabel di database, dan atribut di dalamnya merepresentasikan kolom-kolom tabel tersebut.
