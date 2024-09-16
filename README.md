@@ -60,6 +60,8 @@ Django cocok untuk pemula karena menyediakan banyak fitur bawaan seperti interak
 Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfungsi sebagai penghubung antara kode Python dan database. Melalui ORM, kita bisa membuat, membaca, memperbarui, dan menghapus data dari database tanpa menulis query SQL secara langsung. Setiap model merepresentasikan tabel di database, dan atribut di dalamnya merepresentasikan kolom-kolom tabel tersebut.
 
 
+============================================================================================================================================================================================================================================
+
 
 ### ------ T U G A S  3 -----  
 
@@ -89,6 +91,14 @@ Selanjutnya, hal yang penting adalah membuat form. Struktur form dibuat pada ber
 
 ## Akses 4 URL dengan Postman
 ### xml
+![ss_xml](https://github.com/user-attachments/assets/dbd8015d-ee79-478b-acf1-beaf1d7ef54c)
+
 ### json
+![ss_json](https://github.com/user-attachments/assets/86fee7e1-edbe-4d04-a428-ff17cc5c7329)
+
 ### xml by ID
+![ss_xml_id](https://github.com/user-attachments/assets/d6725ae7-e4e1-462e-8f9a-4d5c39e1f315)
+
 ### json by ID
+![ss_xml_id](https://github.com/user-attachments/assets/623cc98f-3674-4ed0-ac01-4e2ea5bf27aa)
+
