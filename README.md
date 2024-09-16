@@ -57,7 +57,7 @@ Django cocok untuk pemula karena menyediakan banyak fitur bawaan seperti interak
 Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfungsi sebagai penghubung antara kode Python dan database. Melalui ORM, kita bisa membuat, membaca, memperbarui, dan menghapus data dari database tanpa menulis query SQL secara langsung. Setiap model merepresentasikan tabel di database, dan atribut di dalamnya merepresentasikan kolom-kolom tabel tersebut.
 
 
-==============================================================================================================================================================================================================
+=========================================================================================================================================================================================================================================================================
 
 
 ### ------ T U G A S  3 -----  
