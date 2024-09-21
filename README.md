@@ -99,3 +99,32 @@ Selanjutnya, hal yang penting adalah membuat form. Struktur form dibuat pada ber
 ### json by ID
 ![ss_xml_id](https://github.com/user-attachments/assets/623cc98f-3674-4ed0-ac01-4e2ea5bf27aa)
 
+
+=========================================================================================================================================================================================================================================================================
+
+
+### ------ T U G A S  4 -----  
+
+## 1. perbedaan antara `HttpResponseRedirect()` dan `redirect()`
+`HttpResponseRedirect()`digunakan untuk membuat respons HTTP dengan kode status 302 untuk menunjukkan bahwa halaman diminta untuk dialihkan atau redirect ke URL lain. Untunk menentukan URL atau path yang menjadi tujuan redirectnya harus manual. Biasanya digunakan untuk memanggil nama view. Sedangkan `redirect()` lebih fleksible karena bisa menerima URL langsung, nama view, dan objek model dengan methode `get_absolute_url()`. Oleh karena itu, redirect() ini disebut sebagai shortcut function yang disediakan oleh Django untuk menangani redirect(). Ia juga menggunakan `HttpResponseRedirect()` di belakang layarnya. Dengan begitu, redirect() lebih nyaman dan mudah dalam penulisan kode karena bisa langsung mengarahkan nama view tanpa harus menggunakan `reverse()` secara manual.
+
+## 2. Cara kerja penghubungan model MoodEntry dengan User
+User dijadikan variable yang merupakan foreign key pada MoodEntry (`user = models.ForeignKey(User, on_delete=models.CASCADE)`). Oleh karena itu, satu mood entry dimiliki oleh user yang uniq, tapi user bisa punya lebih dari satu MoodEntry sehingga user bisa input MoodEntry apapun dan berapapun tergantung keinginan. 
+
+Pada kode `mood_entry = form.save(commit=False)` karena coomitnya bernilai false, form akan mwnunda penyimpanan input ke database. User yang sedang login menetapkan `request.user` sehingga data tersebut disimpan ke database dan informasinya dimasukkan ke field user itu sendiri dalam MoodEntry.
+
+## 3. Perbedaan antara authentication dan authorization, Hal yang dilakukan saat pengguna login? Cara Django mengimplementasikan kedua konsep tersebut.
+### Perbedaan antara authentication dan authorization
+authentication adalah memastikan siapa pengguna tersebut dengan cara memverifikasi identitas. MIsalnya untuk login kita harus memasukan username dan kata sandi, aplikasi akan mengecek apak kedua hal tersebut sesuai. Sedangkan authorization memastikan apa yang diizinkan untuk dilakukan oleh pengguna berdasarkan izin aksesnya. Misalnya pada aplikasi ini, user boleh menambahkan Item berapapun.
+### Hal yang dilakukan saat pengguna login?
+Saat login, pengguna bisa menambahkan Item apa saja dengan melengkapi data-data item yang diperlukan. Pengguna boleh menambahkan berapa saja tanpa batasan sesuai keperluan. 
+### Cara Django mengimplementasikan kedua konsep tersebut.
+1) Django mengimplementasikan `authentication` dengan menyediakan formulir bawaan `UserCreationForm` yang pada tutorial kemarin disimpan pada `views.py` dan juga menyediakan fungsi `AuthenticationForm`. Pada bagian `AuthenticationForm(data=request.POST)` berfungsi untuk memvalidasi apakah data yang dimasukan saat login benar atau tidak. Jika benar, maka user akan berhasil masuk dan memiliki hak akses pada aplikasi tergantung akunnya.
+2) Django juga mengimplementasikan authorization dengan cara menyediakan `@login_required` untuk membatasi hak akses ke halaman tertentu. Contohnya pada aplikasi ini kita menyimpan `@login_required(login_url='/login')` di atas show_main. Jadi pengguna harus login dulu sebelum memiliki akses untuk menambahkan data-data pada aplikasi.
+
+## 4. Cara Django mengingat pengguna yang sudah login dan kegunaan lain cookie
+### Cara Django mengingat pengguna yang sudah login
+Django mengingat pengguna yang telah login dengan melakukan session framework yang sessionnya disimpan ke database dan mereferensikannya dengan cookies. Ketika pengguna berhasil login, Dango akan membuat session ID yang uniq untuk setiap pengguna lalu mengirimkan session ID tersebut sebagai cookie ke browser pengguna setelah menyimpannya di server. Setiap kali user request, session ID dikirim juga dengan request tersebut hingga server mengenali user dan memberikan akses sesuai status login.
+### Kegunaan lain cookie
+Cookies berguna untuk menyimpan preferensi pengguna seperti pilihan bahasa, tema, atau pengaturan tampilan lainnya. Selain itu cookies juga digunakan oleh pihak ketiga untuk melacak aktivitas pengguna di berbagai situs web. Cookies juga memungkinkan pengguna untuk login ke beberapa aplikasi dalam satu sesi tanpa harus login berulang kali.
+Namun, tidak semua cookies aman. Jika cookie dikirim melalui koneksi HTTP biasa atau tanpa pengamanan tambahan, cookie tersebut rentan terhadap serangan penyadapan (man-in-the-middle) atau pencurian melalui serangan XSS.
