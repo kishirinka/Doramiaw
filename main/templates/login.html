@@ -1,32 +1,55 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block meta %}
 <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
-<div class="login">
-  <h1>Login</h1>
 
-  <form method="POST" action="">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td><input class="btn login_btn" type="submit" value="Login" /></td>
-      </tr>
-    </table>
-  </form>
+<head>
+  <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
+  <!-- Box Icons -->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} Don't have an account yet?
-  <a href="{% url 'main:register' %}">Register Now</a>
-</div>
+<body>
+  <header>
+    
+    <div class="login">
+      <h1>Login</h1>
 
+      <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+          {{ form.as_table }}
+          <tr>
+            <td></td>
+            <td><input class="btn login_btn" type="submit" value="Login" /></td>
+          </tr>
+        </table>
+      </form>
+
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} Don't have an account yet?
+      <a href="{% url 'main:register' %}">Register Now</a>
+    </div>
+  <header>
+    
+  <div class="image-container">
+    <img src="{% static 'images/loginBg.png' %}" alt="bg" class="background-image">
+  </div>
+  
+</body>
 {% endblock content %}

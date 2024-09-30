@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<title>Doramiaw</title>
+<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+<link rel="stylesheet" href="{% static 'css/navbar_style.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<!-- Remix Icons -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="{% static 'images/logo.png' %}">
+
+<body>
+  <header class=navbar>
+      <ul class="navbar-list">
+          <li><a href="#Home" class="navbar-link has-after">Home</a></li>
+          <li><a href="#About" class="navbar-link has-after">About</a></li>
+          <li><a href="#Blog" class="navbar-link has-after">Blog</a></li>
+          <li><a href="#Contact" class="navbar-link has-after">Contact</a></li>
+      </ul>
+
+  <div class="right-content">
+      <a href="{% url 'main:logout' %}" class="nav-btn">Logout</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+  </header>
+
+  </div>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('menu-icon').addEventListener('click', function() {
+              const navbar = document.querySelector('.navbar-list');
+              navbar.classList.toggle('open'); // Tambahkan kelas 'open' untuk memunculkan navbar
+          });
+      });
+  </script>
+  
+
+</body>
+
+{% endblock content %}

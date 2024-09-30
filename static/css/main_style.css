@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #FFFAF0;
+    z-index: 3;
+}
+
+.identitas {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.identitas h1 {
+    font-size: 2.5rem;
+    color: #f49ccf;
+    margin-bottom: 10px;
+}
+
+.identitas p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 5px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.identitas p span {
+    font-weight: bold;
+    color: #f49ccf;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFAF0;
+    padding: 10px;
+    text-align: center;
+}
+
+.img-logo {
+    width: 7%;
+    height: 7%;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clickable-text {
+    text-decoration: none;
+    color: #1b3d73;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: rgba(32, 44, 125, 0.573);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content {
+    color: #fff;
+}
+
+.item-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.item-price, .item-category, .item-description {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-edit, .btn-delete {
+    background-color: transparent;
+    border: 2px solid #f49ccf;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    background-color: #f49ccf;
+    color: #13010b;
+    transform: scale(1.05);
+}
+
+.btn-add {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1b3d73;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px 0;
+}
+
+.btn-add:hover {
+    background-color: #f49ccf;
+    transform: scale(1.05);
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    background-color: #FFFAF0;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #16537e;
+    z-index: 3;
+}
+
+th, td {
+    border: 2px solid #16537e;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.welcome h1 {
+    color: #16537e;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    font-family: 'Urbanist', sans-serif;
+    z-index: 3;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+.btn-add {
+    background-color: #1b3d73;
+    color: white;
+    margin: 10px 0;
+}
+
+.btn-add:hover {
+    background-color: #2c518f;
+}
+
+td a button {
+    margin: 0 5px;
+}
+
+.btn-add {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.mood-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 24rem;
+    padding: 24px;
+}
+
+.sad-image {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 16px;
+}
+
+.no-data-text {
+    text-align: center;
+    color: #718096;
+    margin-top: 16px;
+}
+
+.mood-cards-container {
+    column-count: 1;
+    column-gap: 24px;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .mood-cards-container {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mood-cards-container {
+        column-count: 3;
+    }
+}

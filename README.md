@@ -137,3 +137,67 @@ Pertama-tama, saya membuat fungsi registrasi yang memungkinkan user untuk membua
 Saya mengimplementasikan login menggunakan `AuthenticationForm` di Django yang akan melakukan autentikasi pengguna berdasarkan username dan password yang dimasukkan. Jika autentikasi berhasil, pengguna akan diarahkan ke halaman utama aplikasi. Saya juga membuat `login.html` untuk menampilkan form login dan juga menambhakn URL login. Kemudian, saya membuat fungsi logout yang menggunakan `logout` dari Django untuk mengakhiri sesi pengguna untuk kembali ke halaman login.
 
 Untuk membuat dua akun pengguna, saya menggunakan form registrasi dan kemudian menambahkan tiga data dummy untuk setiap akun di model item yang telah dibuat sebelumnya. Pada tahap ini, saya juga menghubungkan model Product dengan User dengan menambahkan field `user` sebagai `ForeignKey` dalam model Product. Saat menyimpan data produk baru, saya memastikan bahwa pengguna yang sedang login terkait dengan produk yang dibuat.Saya menampilkan nama pengguna yang sedang login di aplikasi (Halo {{nama}}), termasuk username dan waktu terakhir login yang disimpan dalam cookie. Fungsi login saya modifikasi agar menyimpan informasi login terakhir ke cookie, dan informasi ini ditampilkan di halaman utama menggunakan template HTML. Dengan demikian, pengguna dapat melihat kapan terakhir loginnya.
+
+
+=========================================================================================================================================================================================================================================================================
+
+
+### ------ T U G A S  5 -----  
+
+## 1. Urutan prioritas pengambilan CSS selector
+Ketika kita menggunakan CSS untuk styling halaman web, terkadang satu elemen HTML memiliki lebih dari satu style yang diterapkan dari beberapa selector yang berbeda. Dalam kasus seperti ini, browser akan menentukan prioritas berdasarkan aturan specificity. Specificity ini menentukan mana CSS yang akan diutamakan.
+1. Selector Berdasarkan Nama Elemen (Element Selector)
+Selector ini adalah yang paling dasar dan memiliki prioritas paling rendah. Element selector memilih elemen HTML berdasarkan tag-nya, seperti <p>, <div>, atau <h1>. 
+2. Selector Berdasarkan Class (Class Selector)
+Selector ini lebih spesifik daripada element selector. Class selector menggunakan atribut class dalam elemen HTML untuk menerapkan style. Sebagai contoh, `.button { background-color: green; }` akan mengubah warna latar belakang elemen yang memiliki class button. 
+3. Selector Berdasarkan Atribut dan Pseudo-class
+Selector berdasarkan atribut memilih elemen HTML yang memiliki atribut tertentu, seperti `[type="text"]`. Pseudo-class, seperti `:hover` atau `:focus`, digunakan untuk memilih elemen dalam kondisi tertentu. Misalnya, `a:hover { color: red; }` akan mengubah warna tautan saat di-hover menjadi merah. Selector ini memiliki prioritas yang sama dengan class selector.
+4. Selector Berdasarkan ID (ID Selector)
+Selector ID sangat spesifik dan memiliki prioritas yang lebih tinggi dibandingkan class dan element selector. ID adalah unik untuk setiap elemen di halaman, sehingga style yang diterapkan melalui ID akan diutamakan. Misalnya, `#header { background-color: black; }` akan mengubah warna latar belakang elemen dengan ID header menjadi hitam, meskipun ada class atau element selector lain yang memberikan aturan berbeda.
+5. Inline Styles
+Inline styles adalah style yang ditulis langsung di dalam atribut style elemen HTML. Misalnya, `<h1 style="color: red;">Hello</h1>`. Inline styles memiliki prioritas yang lebih tinggi dibandingkan semua selector CSS lainnya yang ditulis di file eksternal atau internal. Ini berarti jika ada style yang diterapkan langsung pada elemen melalui inline styles, style tersebut akan mengabaikan selector lain, kecuali ada aturan `!important`.
+
+## 2. Alasan responsive design menjadi konsep yang penting dalam pengembangan aplikasi web
+Responsive design adalah pendekatan dalam pengembangan aplikasi web yang bertujuan untuk membuat tampilan situs web dapat beradaptasi dengan baik di berbagai ukuran layar dan perangkat, seperti smartphone, tablet, dan desktop. esponsive design memastikan bahwa pengguna memiliki pengalaman yang konsisten dan optimal, terlepas dari perangkat yang mereka gunakan. Selain itu, Responsive design membuat aplikasi web dapat diakses dengan mudah oleh semua orang, termasuk mereka yang memiliki keterbatasan fisik atau keterampilan teknologi.
+1. Aplikasi yang sudah menerapkan responsive design: Doramiaw (hehe)
+Saya membuat beberapa halaman dari aplikasi ini dengan responsive design. Contohnya halaman yang memuat navbar, saya membuat navbar tersebut menjadi responsive. Saat layar dikecilkan, menu yang semula ditambilkan di tengah-atar halaman, menjadi ditampilkan saat hamburger diklik.
+2. Aplikasi yang belum menerapkan responsive design: Beberapa Situs Berita Tua
+Beberapa situs berita yang lebih tua masih memiliki desain yang tidak responsif, sehingga tampilan mereka tidak optimal di perangkat mobile. Pengguna mungkin mengalami kesulitan saat mengakses konten, karena harus menggulir secara horizontal atau memperbesar untuk membaca artikel.
+
+## 3. Perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+1. Margin
+Margin adalah ruang kosong di luar batas elemen. Ini adalah area antara elemen dan elemen lain di sekitarnya. Margin tidak memiliki warna dan bersifat transparan.
+contoh implementasi: 
+.element {
+    margin: 10px 20px; /* 10px atas dan bawah, 20px kanan dan kiri */
+}
+2. Border
+Border adalah garis yang mengelilingi elemen. Border dapat memiliki ketebalan, warna, dan jenis garis yang berbeda (seperti solid, dashed, atau dotted).
+contoh implementasi: 
+.element {
+    border: 2px solid black; /* Ketebalan 2px, jenis solid, dan warna hitam */
+}
+3. Padding
+Padding adalah ruang di dalam batas elemen, antara konten elemen (seperti teks atau gambar) dan batas itu sendiri. Padding memiliki warna latar belakang yang sama dengan elemen.
+contoh implementasi: 
+.element (class element contohny) {
+    padding: 15px; /* Mengatur padding 15px di semua sisi */
+}
+> I N T I N Y A: Margin adalah ruang di luar elemen, digunakan untuk mengatur jarak antar elemen. Border adalah garis yang mengelilingi elemen, memberikan batas visual. Padding adalah ruang di dalam elemen, memberikan jarak antara konten dan batas.
+
+## 4. Konsep flex box dan grid layout beserta kegunaannya!
+1. Flex Box
+Flexbox, atau Flexible Box Layout, adalah metode tata letak CSS yang dirancang untuk mengatur elemen dalam satu dimensi, baik secara horizontal maupun vertikal. Flexbox memudahkan pengaturan spasi di antara elemen dan mengontrol ukuran elemen agar dapat beradaptasi dengan berbagai ukuran layar.
+>Kegunaan: Menyusun elemen dalam satu baris atau kolom, Mengatur spasi dan perataan elemen, Menangani ukuran elemen yang responsif.
+2. Grid Layout
+Grid Layout adalah metode tata letak CSS yang memungkinkan pengembang untuk mengatur elemen dalam dua dimensi, baik secara horizontal maupun vertikal. Dengan Grid, elemen dapat disusun dalam baris dan kolom, menciptakan struktur yang lebih kompleks dibandingkan Flexbox.
+>Kegunaan: Membuat desain yang kompleks seperti tata letak grid untuk gambar, artikel, atau kartu produk, Memberikan kontrol yang lebih besar atas penempatan elemen di halaman, Mendukung desain responsif dngan mengatur ukuran kolom dan baris menggunakan fraksi atau persentase, grid dapat beradaptasi dengan baik pada berbagai ukuran layar.
+
+## 5. Cara mengimplementasikan checklist di atas secara step-by-step
+Untuk mengimplementasikan fungsi hapus dan edit produk, langkah pertama yang dibuat adalah membuat view function pada `views.py` untuk menangani proses penghapusan dan pengeditan produk. dan melakukan routing pada `urls.py` untuk mengarahkan permintaan edit dan delete ke view yang tepat. Di dalam template HTML yang menampilkan daftar produk, tambahkan dua tombol di setiap card produk: satu untuk "Edit" dan satu untuk "Delete". 
+
+Untuk mengkustomisasi halaman login, register, dan tambah produk, saya membuat halaman-halaman tersebut secara terpisah dan membuat mereka memiliki tampilan yang menarik dengan CSS. Saya tidak menggunakan CSS framwork karena kemampuan saya dalam hal tersebut masih terbatas untuk menyelesaikan tugas yang deadline-nya tinggal sebentar. Jadi saya memutuskan untuk memakai kemampuan yang saya miliki dengan menggunakan CSS ini.
+
+Untuk tampilan pesan saat produk belum diinput, pada fungsi `views.py` saya mengecek terlebih dahulu apakah memang tisak ada produk. Jika tidak ada, maka saya menampilkan pesan dan gambar doraemon sedih pada halaman. 
+
+Untuk implementasi navigation Bar yang responsif, saya membuat  struktur dasar navbar yang berisi daftar menu, dan tombol untuk login/logout kemudian membuat tampilannya menjadi menarik di file css. Agar responsif di mobile, saya menggunakan media query untuk mengubah layout saat tampilan di layar lebih kecil (di bawah 950px). Kemudian menambahkan JavaScript untuk mengaktifkan/menonaktifkan tampilan menu ketika tombol hamburger diklik.

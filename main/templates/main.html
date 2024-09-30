@@ -1,39 +1,23 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
-{% block content %}
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doramiaw</title>
 {% load static %}
-<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block content %}
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'css/main_style.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="{% static 'images/logo.png' %}">
+{% comment %} <link rel="preload" as="image" href="{% static 'images/logo.png' %}"> {% endcomment %}
 
 <div class="identitas">
-    <h1>{{ nama_aplikasi }}</h1>
-    <p>by: irma nia alwijah </p>
-    <p>from: {{ kelas }}</p>
-</div>
+    <h1></h1>
+    <p></p>
+    <p></p>
+</div> 
 
-<div class="logo">
-    <img src="{% static 'images/logo.png' %}" class="img-logo" alt="Doramiaw">
-    <div class="input-wrapper">
-        <input type="search" name="search" placeholder="Search product" class="search-field">
-        <ion-icon name="search-outline" aria-hidden="true" class="search-icon"></ion-icon>
-    </div>
-    <nav class="navbar">
-        <ul class="navbar-list">
-            <li><a href="#home" class="navbar-link has-after">Home</a></li>
-            <li><a href="#collection" class="navbar-link has-after">Collection</a></li>
-            <li><a href="#form" class="navbar-link has-after">Form</a></li>
-            <li><a href="#offer" class="navbar-link has-after">Offer</a></li>
-            <li><a href="#blog" class="navbar-link has-after">Blog</a></li>
-        </ul>
-    </nav>
+
+<div class="welcome">
+    <h1>Halo {{ nama }}!</h1>
 </div>
 
 {% comment %} <div class="text-bestseller">
@@ -90,45 +74,47 @@
     </div>
 </div> {% endcomment %}
 
-<div class="welcome">
-    <h1>Halo {{ nama }}!</h1>
-</div>
 
 <div class="form" id="form">
     {% if not object_entries %}
-    <p>Belum ada data item pada doramiaw e-commerce.</p>
+    <div class="mood-container">
+        <div class="no-mood-data">
+            <img src="{% static 'images/sedihBanget.png' %}" alt="Sad face" class="sad-image"/>
+            <p class="no-data-text">Belum ada data mood pada mental health tracker.</p>
+        </div>
+    </div>
     {% else %}
-    <table>
-        <tr>
-            <th>Item Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Description</th>
-        </tr>
-
-        {% for object_entry in object_entries %}
-        <tr>
-            <td>{{ object_entry.name }}</td>
-            <td>{{ object_entry.price }}</td>
-            <td>{{ object_entry.category }}</td>
-            <td>{{ object_entry.description }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        <div class="card-container">
+            {% for object_entry in object_entries %}
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="item-name">{{ object_entry.name }}</h3>
+                    <p class="item-price">Price: {{ object_entry.price }}</p>
+                    <p class="item-category">Category: {{ object_entry.category }}</p>
+                    <p class="item-description">{{ object_entry.description }}</p>
+                    
+                    <div class="card-actions">
+                        <a href="{% url 'main:edit_item' object_entry.pk %}">
+                            <button class="btn-edit">Edit</button>
+                        </a>
+                        <a href="{% url 'main:delete_item' object_entry.pk %}">
+                            <button class="btn-delete">Delete</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     {% endif %}
 
     <br />
-    
-    <a href="{% url 'main:create_object_entry' %}">
-        <button>Add New Item Entry</button>
-    </a>
 
-    <a href="{% url 'main:logout' %}">
-        <button>Logout</button>
+    <a href="{% url 'main:create_object_entry' %}">
+        <button class="btn-add">Add New Item Entry</button>
     </a>
 
     <h5>Sesi terakhir login: {{ last_login }}</h5>
 
-</div>
+</div> 
 {% endblock content %}
 

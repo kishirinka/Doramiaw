@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
 from django.core import serializers
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from main.forms import ObjectEntryForm
 from main.models import ObjectEntry
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -15,17 +15,24 @@ from django.urls import reverse
 
 @login_required(login_url='/login')
 def show_main(request):
-    object_entries = ObjectEntry.objects.filter(user=request.user)
-    
-    context = {
-        "nama_aplikasi" : "Doramiaw",
-        "nama" : request.user.username,
-        "kelas" : "PBP B",
-        "object_entries" : object_entries,
-        'last_login': request.COOKIES['last_login'],
-    }
+    if request.user.is_authenticated:
+        object_entries = ObjectEntry.objects.filter(user=request.user)
+        
+        context = {
+            "nama_aplikasi": "Doramiaw",
+            "nama": request.user.username,
+            "kelas": "PBP B",
+            "object_entries": object_entries,
+            'last_login': request.COOKIES.get('last_login'),
+        }
 
-    return render(request, "main.html", context)
+        return render(request, "main.html", context)
+    
+    # Jika belum login, arahkan ke welcome.html
+    return render(request, 'welcome.html')
+
+def show_welcome(request):
+    return render(request, 'welcome.html')
 
 def create_object_entry(request):
     form = ObjectEntryForm(request.POST or None)
@@ -91,6 +98,29 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    response = HttpResponseRedirect(reverse('main:login'))
+    response = HttpResponseRedirect(reverse('main:welcome'))
     response.delete_cookie('last_login')
     return response
+
+def edit_item(request, id):
+    # Get mood entry berdasarkan id
+    object = ObjectEntry.objects.get(pk = id)
+
+    # Set mood entry sebagai instance dari form
+    form = ObjectEntryForm(request.POST or None, instance=object)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_item.html", context)
+
+def delete_item(request, id):
+    # Get mood berdasarkan id
+    item = ObjectEntry.objects.get(pk = id)
+    # Hapus mood
+    item.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))
