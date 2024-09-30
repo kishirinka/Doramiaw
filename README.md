@@ -7,7 +7,7 @@
 
 [Link PWS](http://irma-nia-doramiaw.pbp.cs.ui.ac.id)
 
-## ------ T U G A S  2 -----  
+# ------ T U G A S  2 -----  
 
 ## 1. Implementasi Checklist
 
@@ -60,7 +60,7 @@ Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfung
 =========================================================================================================================================================================================================================================================================
 
 
-### ------ T U G A S  3 -----  
+# ------ T U G A S  3 -----  
 
 ## 1. Pentingnya Data Delivery dalam Pengimplementasian Platform
 
@@ -103,7 +103,7 @@ Selanjutnya, hal yang penting adalah membuat form. Struktur form dibuat pada ber
 =========================================================================================================================================================================================================================================================================
 
 
-### ------ T U G A S  4 -----  
+# ------ T U G A S  4 -----  
 
 ## 1. perbedaan antara `HttpResponseRedirect()` dan `redirect()`
 `HttpResponseRedirect()`digunakan untuk membuat respons HTTP dengan kode status 302 untuk menunjukkan bahwa halaman diminta untuk dialihkan atau redirect ke URL lain. Untunk menentukan URL atau path yang menjadi tujuan redirectnya harus manual. Biasanya digunakan untuk memanggil nama view. Sedangkan `redirect()` lebih fleksible karena bisa menerima URL langsung, nama view, dan objek model dengan methode `get_absolute_url()`. Oleh karena itu, redirect() ini disebut sebagai shortcut function yang disediakan oleh Django untuk menangani redirect(). Ia juga menggunakan `HttpResponseRedirect()` di belakang layarnya. Dengan begitu, redirect() lebih nyaman dan mudah dalam penulisan kode karena bisa langsung mengarahkan nama view tanpa harus menggunakan `reverse()` secara manual.
@@ -142,12 +142,12 @@ Untuk membuat dua akun pengguna, saya menggunakan form registrasi dan kemudian m
 =========================================================================================================================================================================================================================================================================
 
 
-### ------ T U G A S  5 -----  
+# ------ T U G A S  5 -----  
 
 ## 1. Urutan prioritas pengambilan CSS selector
 Ketika kita menggunakan CSS untuk styling halaman web, terkadang satu elemen HTML memiliki lebih dari satu style yang diterapkan dari beberapa selector yang berbeda. Dalam kasus seperti ini, browser akan menentukan prioritas berdasarkan aturan specificity. Specificity ini menentukan mana CSS yang akan diutamakan.
 1. Selector Berdasarkan Nama Elemen (Element Selector)
-Selector ini adalah yang paling dasar dan memiliki prioritas paling rendah. Element selector memilih elemen HTML berdasarkan tag-nya, seperti <p>, <div>, atau <h1>. 
+Selector ini adalah yang paling dasar dan memiliki prioritas paling rendah. Element selector memilih elemen HTML berdasarkan tag-nya, seperti `<p>`, `<div>`, atau `<h1>`. 
 2. Selector Berdasarkan Class (Class Selector)
 Selector ini lebih spesifik daripada element selector. Class selector menggunakan atribut class dalam elemen HTML untuk menerapkan style. Sebagai contoh, `.button { background-color: green; }` akan mengubah warna latar belakang elemen yang memiliki class button. 
 3. Selector Berdasarkan Atribut dan Pseudo-class
