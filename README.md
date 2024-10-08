@@ -7,7 +7,7 @@
 
 [Link PWS](http://irma-nia-doramiaw.pbp.cs.ui.ac.id)
 
-## ------ T U G A S  2 -----  
+# ------ T U G A S  2 -----  
 
 ## 1. Implementasi Checklist
 
@@ -60,7 +60,7 @@ Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena berfung
 =========================================================================================================================================================================================================================================================================
 
 
-### ------ T U G A S  3 -----  
+# ------ T U G A S  3 -----  
 
 ## 1. Pentingnya Data Delivery dalam Pengimplementasian Platform
 
