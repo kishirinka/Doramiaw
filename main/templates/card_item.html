@@ -1,0 +1,15 @@
+<div class="card-content p-4 bg-white shadow-md rounded-lg mb-4">
+    <h3 class="item-name text-xl font-semibold">{{ object_entry.name }}</h3>
+    <p class="item-price text-gray-700">Price: {{ object_entry.price }}</p>
+    <p class="item-category text-gray-700">Category: {{ object_entry.category }}</p>
+    <p class="item-description text-gray-600">{{ object_entry.description }}</p>
+
+    <div class="card-actions flex mt-4 space-x-2">
+        <a href="{% url 'main:edit_object' object_entry.pk %}">
+            <button class="btn-edit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Edit</button>
+        </a>
+        <a href="{% url 'main:delete_object' object_entry.pk %}">
+            <button class="btn-delete bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">Delete</button>
+        </a>
+    </div>
+</div>

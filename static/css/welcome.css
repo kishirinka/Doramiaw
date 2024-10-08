@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+:root {
+    --bg-color: #0c0c0c;
+    --text-color: #fff;
+    --main-color: #1b3d73;
+    --big-font: 6.6rem;
+    --p-font: 1rem;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar-list a {
+    display: inline-block;
+    margin: 0 20px;
+    color: var(--text-color);
+    font-size: var(--p-font);
+    text-decoration: none;
+    transition: all 0.6s ease;
+}
+
+.navbar-list a:hover {
+    color: var(--text-color);
+    transform: scale(1.1);
+}
+
+.right-content {
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: darken(var(--main-color), 10%);
+    border: 3px solid #f49ccf;
+    color: #13010b;
+    transform: scale(1.05);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.img-logo {
+    position: absolute;
+    right: 15%;
+    top: 400%;
+    transform: translateY(-50%);
+    width: 400px;
+    z-index: 2;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    opacity: 0;
+    animation: fly-in-diagonal 2s ease-out forwards;
+}
+
+@keyframes fly-in-diagonal {
+    0% {
+        transform: translate(-150%, 150%);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(0%, 0%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0%, 0%);
+        opacity: 1;
+    }
+}
+
+.soon h1 {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+#menu-icon {
+    font-size: 42px;
+    z-index: 4;
+    cursor: pointer;
+    margin-left: 25px;
+    display: none;
+}
+
+@media (max-width: 1770px) {
+    header {
+        padding: 22px 4%;
+    }
+    .icons {
+        padding: 0 4%;
+    }
+    .scroll {
+        right: 4%;
+    }
+}
+
+@media (max-width: 1670px) {
+    :root {
+        --big-font: 5.5rem;
+        --p-font: 15px;
+    }
+}
+
+@media (max-width: 1370px) {
+    .icons {
+        display: none;
+    }
+    section {
+        padding: 0 4%;
+    }
+}
+
+@media (max-width: 950px) {
+    #menu-icon {
+        display: block;
+        color: aliceblue;
+    }
+    .navbar-list {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        padding: 100px 50px;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(32px);
+        transition: all 0.6s ease-in-out;
+    }
+
+    .navbar-list.open {
+        left: 0;
+    }
+
+    .navbar-list a {
+        display: block;
+        padding: 0;
+        margin: 0px 0px 25px 0px;
+        font-size: 1.0rem;
+    }
+
+    .navbar-list.open {
+        left: 0;
+    }
+
+    .right-content {
+        position: fixed;
+        right: 7%;
+        top: 20px;
+        z-index: 4;
+    }
+
+    .navbar-list a:hover {
+        border-color: var(--main-color);
+        border-radius: 5px;
+        color: var(--main-color);
+        transform: scale(1.05);
+    }
+}

@@ -1,134 +1,182 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-{% block content %}
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doramiaw</title>
 {% load static %}
-<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-<link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="{% static 'images/logo.png' %}">
 
-<div class="identitas">
-    <h1>{{ nama_aplikasi }}</h1>
-    <p>by: {{ nama }}</p>
-    <p>from: {{ kelas }}</p>
-</div>
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doramiaw</title>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="{% static 'images/logo.png' %}">
+{% endblock head %}
 
-<div class="logo">
-    <img src="{% static 'images/logo.png' %}" class="img-logo" alt="Doramiaw">
-    <div class="input-wrapper">
-        <input type="search" name="search" placeholder="Search product" class="search-field">
-        <ion-icon name="search-outline" aria-hidden="true" class="search-icon"></ion-icon>
+{% block content %}
+    {% include 'navbar.html' %}
+
+    <div class="flex justify-center py-6">
+        <img src="{% static 'images/logo.png' %}" class="img-logo w-32 h-auto" alt="Doramiaw">
     </div>
-    <nav class="navbar">
-        <ul class="navbar-list">
-            <li><a href="#home" class="navbar-link has-after">Home</a></li>
-            <li><a href="#collection" class="navbar-link has-after">Collection</a></li>
-            <li><a href="#form" class="navbar-link has-after">Form</a></li>
-            <li><a href="#offer" class="navbar-link has-after">Offer</a></li>
-            <li><a href="#blog" class="navbar-link has-after">Blog</a></li>
-        </ul>
-    </nav>
-</div>
 
-<div class="text-bestseller">
-    <h1 class="best">Our Bestsellers</h1>
-</div>
-
-<div class="bestsellers" id="collection">
-    <nav class="bestseller-picts">
-        <div class="navbar-bestseller">
-            <a href="#" class="product-image"><img src="{% static 'images/pintu.png' %}" alt="pintu"/></a>
-            <h2 class="price">Rp500.000</h2>
-            <a href="#" class="produk-link"><span class="produk">Pintu Kemana Saja</span></a>
-            <h3 class="star">★★★★★</h3>
-            <p class="keterangan">Pintu kemana saja akan membuatmu bebas melakukan perjalanan ke alam liar. Kamu bisa jalan-jalan ke segala alam. Mudah disimpan dan tidak mudah lapuk.</p>
-        </div>
-
-        <div class="navbar-bestseller">
-            <a href="#"><img src="{% static 'images/kipas.png' %}" alt="kipas" /></a>
-            <h2 class="price">Rp200.000</h2>
-            <a href="#" class="produk-link"><span class="produk">Kipas Pembersih Code Eror</span></a>
-            <h3 class="star">★★★★☆</h3>
-            <p class="keterangan">Kode kamu eror? Tenang brookk nyalain kipasnya aja nanti erornya ilang sendiri. Hoax? Uang dijamin tidak kembali. Kalo erornya gak ilang, minimal laptopnya kagak panas lah.</p>
-        </div>
-
-        <div class="navbar-bestseller">
-            <a href="#"><img src="{% static 'images/senter.png' %}" alt="senter" /></a>
-            <h2 class="price">Rp600.000</h2>
-            <a href="#" class="produk-link"><span class="produk">Senter Pembesar Nilai</span></a>
-            <h3 class="star">★★★★☆</h3>
-            <p class="keterangan">Kalo nilainya kecil gak usah nangis ya. Nobita aja kalo jeblok tetep happy kiyowok. Tahu kenapa? Karena digedein pake senter ini. Udah banyak reviewnya, kok.</p>
-        </div>
-
-        <div class="navbar-bestseller">
-            <a href="#"><img src="{% static 'images/dorayaki.png' %}" alt="dorayaki" /></a>
-            <h2 class="price">Rp125.000</h2>
-            <a href="#" class="produk-link"><span class="produk">Dorayaki Manis</span></a>
-            <h3 class="star">★★★★☆</h3>
-            <p class="keterangan">Dorayakinya manis kayak kamu. Dibuat dari tepung pilihan yang bergizi. Coklatnya lumer di mulut, dan bikin kenyang di perut. Kalo gak sempet sarapan, makan ini aja.</p>
-        </div>
-
-        <div class="navbar-bestseller">
-            <a href="#"><img src="{% static 'images/baling.png' %}" alt="baling" /></a>
-            <h2 class="price">Rp330.000</h2>
-            <a href="#" class="produk-link"><span class="produk">Baling-Baling Bambu</span></a>
-            <h3 class="star">★★★★★</h3>
-            <p class="keterangan">Masa kecil kamu pernah mimpi bisa terbang? Eitsss sekarang udah canggih brookk. Balik-baling bambu ini bisa bikin kamu terbang ke sana kemari. Kalo jatuh jangan lupa bangkit lagi.</p>
-        </div>
-    </nav>
-
-    <div class="text-shop-all">
-        <a href="#" class="btn-link">
-            <span class="span">Shop All Products →</span>
-        </a>
+    <div class="text-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">Form</h1>
     </div>
-</div>
 
-<div class="text-form">
-    <h1 class="best">Form</h1>
-</div>
+    <div class="max-w-6xl mx-auto p-4">
+        <div id="object_entry_cards"></div>
+        <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
+            <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 border-b rounded-t">
+                    <h3 class="text-xl font-semibold text-gray-900">
+                        Add New Item Entry
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="px-6 py-4 space-y-6 form-style">
+                    <form id="objectEntryForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700">product name</label>
+                            <input type="text" id="produk" name="name" class="mt-1 block w-full" placeholder="Enter your product name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">price</label>
+                            <input type="number" id="price" name="price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="category" class="block text-sm font-medium text-gray-700">category</label>
+                            <input type="text" id="category" name="category" class="mt-1 block w-full" placeholder="Enter ther category " required><input id="category" name="category" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="enter category" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="description" class="block text-sm font-medium text-gray-700">description</label>
+                            <textarea id="description" name="description" rows="4" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="enter category" required></textarea>
+                        </div>
+                    </form>
+                </div>
+            <!-- Modal footer -->
+                <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
+                    <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
+                    <button type="submit" id="submitObjectEntry" form="objectEntryForm" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">Save</button>
+                </div>
+            </div>
+        </div>
 
-<div class="form" id="form">
-    {% if not object_entries %}
-    <p>Belum ada data item pada doramiaw e-commerce.</p>
-    {% else %}
-    <table>
-        <tr>
-            <th>Item Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Description</th>
-        </tr>
+        <div class="flex justify-end mt-4">
+            <a href="{% url 'main:create_object_entry' %}" class="bg-indigo-400 hover:bg-indigo-400 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 mx-4 ">
+                Add New item Entry
+            </a>
+            <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-indigo-700 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" onclick="showModal();">
+              Add New item Entry by AJAX
+            </button>
+        </div>
 
-        {% for object_entry in object_entries %}
-        <tr>
-            <td>{{ object_entry.name }}</td>
-            <td>{{ object_entry.price }}</td>
-            <td>{{ object_entry.category }}</td>
-            <td>{{ object_entry.description }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
+        <h5 class="text-center mt-4 text-gray-600">Sesi terakhir login: {{ last_login }}</h5>
+    </div>
 
-    <br />
+    <script>
+
+    async function getObjectEntries(){
+        return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+    }
+
+    async function refreshObjectEntries() {
+        document.getElementById("object_entry_cards").innerHTML = "";
+        const objectEntries = await getObjectEntries();
+        let htmlString = "";
     
-    <a href="{% url 'main:create_object_entry' %}">
-        <button>Add New Item Entry</button>
-    </a>
+        if (objectEntries.length === 0) {
+            htmlString = `
+                <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+                    <img src="{% static 'images/sedihBanget.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+                    <p class="text-center text-gray-600">Belum ada data item pada doramiaw e-commerce.</p>
+                </div>
+            `;
+        } else {
+            objectEntries.forEach((item) => {
+                htmlString += `
+                <div class="card-content">
+                    <h3 class="item-name text-xl font-semibold">${item.name}</h3>
+                    <p class="item-price text-gray-700">Price: ${item.price}</p>
+                    <p class="item-category text-gray-700">Category: ${item.category}</p>
+                    <p class="item-description text-gray-600">${item.description}</p>
+                
+                    <div class="card-actions flex mt-4 space-x-2">
+                        <a href="/edit-object/${item.pk}">
+                            <button class="btn-edit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Edit</button>
+                        </a>
+                        <a href="/delete-object/${item.pk}">
+                            <button class="btn-delete bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                `;
+            });
+        }
+    
+        document.getElementById("object_entry_cards").innerHTML = htmlString;
+    }
+    
+    refreshObjectEntries();
+    
+    const modal = document.getElementById('crudModal');
+    const modalContent = document.getElementById('crudModalContent');
+    
+    function showModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
 
-    <a href="{% url 'main:logout' %}">
-        <button>Logout</button>
-    </a>
+        modal.classList.remove('hidden'); 
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50); 
+    }
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    
+    function hideModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
 
-</div>
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150); 
+    }
+    
+    document.getElementById("cancelButton").addEventListener("click", hideModal);
+    document.getElementById("closeModalBtn").addEventListener("click", hideModal);
+
+    function addObjectEntry() {
+        fetch("{% url 'main:add_object_entry_ajax' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#objectEntryForm')),
+        })
+        .then(response => refreshObjectEntries())
+    
+        document.getElementById("objectEntryForm").reset(); 
+        document.querySelector("[data-modal-toggle='crudModal']").click();
+    
+        return false;
+      }
+
+    
+
+    document.getElementById("objectEntryForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        addObjectEntry();
+        })
+
+    
+    </script>
 {% endblock content %}
-
