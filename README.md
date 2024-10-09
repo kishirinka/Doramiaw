@@ -201,3 +201,31 @@ Untuk mengkustomisasi halaman login, register, dan tambah produk, saya membuat h
 Untuk tampilan pesan saat produk belum diinput, pada fungsi `views.py` saya mengecek terlebih dahulu apakah memang tisak ada produk. Jika tidak ada, maka saya menampilkan pesan dan gambar doraemon sedih pada halaman. 
 
 Untuk implementasi navigation Bar yang responsif, saya membuat  struktur dasar navbar yang berisi daftar menu, dan tombol untuk login/logout kemudian membuat tampilannya menjadi menarik di file css. Agar responsif di mobile, saya menggunakan media query untuk mengubah layout saat tampilan di layar lebih kecil (di bawah 950px). Kemudian menambahkan JavaScript untuk mengaktifkan/menonaktifkan tampilan menu ketika tombol hamburger diklik.
+
+
+=========================================================================================================================================================================================================================================================================
+
+
+# ------ T U G A S  5 -----
+
+## Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web
+Salah satu manfaat utama java script adalah memiliki kemampuan untuk memberikan interaktivitas di sisi pengguna. Dengan menggunakan JavaScript, pengembang dapat membuat aplikasi yang memungkinkan pengambilan data secara dinamis tanpa perlu melakukan reload halaman. Ini sangat penting untuk menciptakan pengalaman pengguna yang mulus dan responsif. Selain itu, JavaScript juga memungkinkan manipulasi elemen DOM secara langsung, yang berarti elemen-elemen di halaman web dapat diubah, ditambahkan, atau dihapus secara real-time berdasarkan interaksi pengguna. Penanganan event, seperti klik atau input keyboard, juga dapat dikelola dengan efisien menggunakan JavaScript. Keseluruhan, penggunaan JavaScript meningkatkan efisiensi dan kenyamanan aplikasi web, menjadikannya lebih menarik dan fungsional bagi pengguna.
+
+## Fungsi await saat Menggunakan fetch()
+Fungsi await digunakan untuk menunggu hasil dari fetch() hingga selesai dieksekusi sebelum melanjutkan ke baris berikutnya. Tanpa penggunaan await, JavaScript akan terus melanjutkan eksekusi, yang dapat menyebabkan ketidakcocokan dalam alur program jika hasil dari fetch() belum tersedia saat dibutuhkan. Ini dapat mengakibatkan error atau data yang tidak terproses dengan benar. Oleh karena itu, penggunaan await memastikan bahwa kode dapat berjalan dengan urutan yang tepat dan hasil dari fetch() dapat digunakan secara langsung setelah diperoleh.
+
+## Penggunaan csrf_exempt pada View AJAX POST
+Dalam konteks pengembangan aplikasi web, perlindungan terhadap serangan CSRF (Cross-Site Request Forgery) sangat penting. Namun, dalam beberapa kasus, seperti saat menggunakan AJAX POST, kita mungkin perlu menonaktifkan perlindungan ini pada view tertentu menggunakan decorator csrf_exempt. Penggunaan decorator ini memungkinkan view untuk menerima request POST tanpa memerlukan token CSRF, yang mungkin tidak selalu disertakan dalam permintaan AJAX. 
+
+## Pembersihan Input 
+Pembersihan input pengguna adalah langkah penting dalam pengembangan aplikasi web. Meskipun mungkin tergoda untuk hanya melakukan pembersihan di frontend, tindakan ini tidak cukup untuk menjamin keamanan. Pembersihan di backend sangat diperlukan untuk memastikan bahwa data yang masuk ke dalam sistem aman dari manipulasi atau serangan seperti XSS (Cross-Site Scripting). Frontend bisa dimodifikasi oleh pengguna, sehingga tidak ada jaminan bahwa data yang dikirimkan telah melalui proses pembersihan yang benar. Dengan melakukan pembersihan di backend, pengembang dapat lebih yakin bahwa input pengguna tidak akan menyebabkan masalah keamanan dalam aplikasi.
+
+## Langkah-langkah Implementasi Checklist
+
+Untuk mendukung AJAX GET dalam aplikasi yang mengelola data item, langkah pertama yang saya lakukan adalah membuat fungsi view yang  Di dalam fungsi ini, saya memastikan bahwa hanya data milik pengguna yang sedang login yang diambil. Setelah memverifikasi apakah pengguna terautentikasi, saya dapat mengambil data item yang relevan dan mengembalikannya dalam format JSON menggunakan `JsonResponse`. Selanjutnya, saya menentukan URL untuk view ini di `urls.py`. Setelah backend siap, saya beralih dengan menyiapkan JavaScript untuk melakukan permintaan AJAX GET. Menggunakan `fetch()`. Lalu saya memastikan fungsi AJAX GET dipanggil saat halaman dimuat, sehingga data item pengguna ditampilkan secara dinamis tanpa perlu me-reload halaman. 
+
+Untuk membuat tombol yang membuka modal dengan form untuk menambahkan item, saya mulai dengan menambahkan elemen tombol pada halaman utama menggunakan HTML. Setelah itu, saya membuat markup modal yang berisi form dengan elemen input untuk memasukkan teks item dan tombol submit. Kemudian, saya menambahkan event listener pada tombol untuk membuka modal saat diklik, serta tombol close untuk menutup modal.
+
+Selanjutnya, saya menentukan path baru untuk fungsi view yang menambahkan item di urls.py. Saya menambahkan rute baru yang mengarah ke fungsi view tersebut, menggunakan URL /create-ajax/ untuk mengaksesnya
+
+Terakhir, saya menghubungkan form di dalam modal ke path yang telah ditentukan. Saya melakukan ini dengan menambahkan atribut action pada form yang mengarah ke /create-ajax/ dan menetapkan metode menjadi POST. Selain itu, saya memastikan bahwa ketika form disubmit, data mood dikirimkan menggunakan AJAX, dan jika penambahan berhasil, modal akan ditutup dan form akan dibersihkan. Dengan langkah-langkah ini, saya berhasil membuat fungsi view baru yang terintegrasi dengan form di modal, memungkinkan pengguna untuk menambahkan mood dengan mudah dan efektif.
