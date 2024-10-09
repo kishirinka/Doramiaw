@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+{% endblock meta %}
+
 {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doramiaw</title>
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -52,8 +56,8 @@
                             <input type="number" id="price" name="price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-indigo-700" required>
                         </div>
                         <div class="mb-4">
-                            <label for="category" class="block text-sm font-medium text-gray-700">category</label>
-                            <input type="text" id="category" name="category" class="mt-1 block w-full" placeholder="Enter ther category " required><input id="category" name="category" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-indigo-700" placeholder="enter category" required></textarea>
+                            <label for="name" class="block text-sm font-medium text-gray-700">category</label>
+                            <input type="text" id="category" name="category" class="mt-1 block w-full" placeholder="Enter category " required>
                         </div>
                         <div class="mb-4">
                             <label for="description" class="block text-sm font-medium text-gray-700">description</label>
@@ -101,22 +105,30 @@
             `;
         } else {
             objectEntries.forEach((item) => {
+                const name = DOMPurify.sanitize(item.fields.name);
+                const category = DOMPurify.sanitize(item.fields.category);
+                const description = DOMPurify.sanitize(item.fields.description);
                 htmlString += `
-                <div class="card-content">
-                    <h3 class="item-name text-xl font-semibold">${item.name}</h3>
-                    <p class="item-price text-gray-700">Price: ${item.price}</p>
-                    <p class="item-category text-gray-700">Category: ${item.category}</p>
-                    <p class="item-description text-gray-600">${item.description}</p>
-                
-                    <div class="card-actions flex mt-4 space-x-2">
-                        <a href="/edit-object/${item.pk}">
-                            <button class="btn-edit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Edit</button>
-                        </a>
-                        <a href="/delete-object/${item.pk}">
-                            <button class="btn-delete bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">Delete</button>
-                        </a>
+                <div class="card-container flex space-x-4">
+                    <div class="card border rounded-lg shadow-lg p-4">
+                        <div class="card-content">
+                            <h3 class="item-name text-xl font-semibold">${name}</h3>
+                            <p class="item-price text-gray-700">Price: ${item.fields.price}</p>
+                            <p class="item-category text-gray-700">Category: ${category}</p>
+                            <p class="item-description text-gray-600">${description}</p>
+                            
+                            <div class="card-actions flex mt-4 space-x-2">
+                                <a href="/edit-item/${item.pk}">
+                                    <button class="btn-edit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Edit</button>
+                                </a>
+                                <a href="/delete/${item.pk}">
+                                    <button class="btn-delete bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300">Delete</button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 `;
             });
         }

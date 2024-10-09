@@ -258,3 +258,23 @@ th {
 
 
 /* selesai */
+
+.card-container {
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Mengatur jumlah kolom */
+    gap: 16px; /* Jarak antar card */
+    padding: 16px; /* Padding untuk kontainer */
+}
+
+.card {
+    background-color: white; /* Warna latar belakang card */
+    border: 1px solid #e2e8f0; /* Border */
+    border-radius: 0.5rem; /* Sudut membulat */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+    padding: 16px; /* Padding dalam card */
+    display: flex; /* Menampilkan konten card sebagai flex */
+    flex-direction: column; /* Mengatur konten card secara vertikal */
+    justify-content: space-between; /* Menjaga jarak antar elemen */
+    height: 100%; /* Memastikan card memiliki tinggi penuh */
+}
+
